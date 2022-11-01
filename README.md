@@ -26,7 +26,7 @@ port can be changed by changing "server.port" value in application.properties fi
 | Delete | /appointment/delete/{aId} | appointment id      | success/failure message                    |
 
 Security Configurations:
-* Jwt based authentication is used with the help of OAuth2 api
+* Jwt based authentication is used, with the help of OAuth2 api
 
 
 as of now only successive cases are being handled, negative cases will be handled in future
