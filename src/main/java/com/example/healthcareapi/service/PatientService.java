@@ -1,7 +1,6 @@
 package com.example.healthcareapi.service;
 
 import com.example.healthcareapi.model.Patients;
-import com.example.healthcareapi.projection.PatientProject;
 import com.example.healthcareapi.repos.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
