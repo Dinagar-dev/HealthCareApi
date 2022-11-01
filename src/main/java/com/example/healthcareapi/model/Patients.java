@@ -15,7 +15,7 @@ public class Patients {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long patientId;
+	private Long patientid;
 	private String patient_name;
 	private String patient_gender; 
 	private String patient_dob;
@@ -35,6 +35,8 @@ public class Patients {
 		this.patient_email = patient_email;
 		this.desc = desc;
 	}
+
+
     
     
 }
