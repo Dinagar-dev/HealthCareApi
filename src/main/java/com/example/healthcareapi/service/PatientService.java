@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PatientService {
@@ -28,9 +29,14 @@ public class PatientService {
         return patientRepo.findAll();
     }
 
-    public PatientProject getSinglePatient(Long patientId){
-        return patientRepo.findByPatientId(patientId).get();
+    public Patients getSinglePatient(Long patientId){
+        return patientRepo.findByPatientId(patientId).orElse(null);
 //        return null;
+    }
+
+    public Patients getSinglePatient(String name){
+
+        return patientRepo.findByPatientName(name).orElse(null);
     }
 
 }

@@ -24,7 +24,7 @@ public class AppointmentController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> appoinmentRegistration(@RequestBody Appointment appoinment){
+    public ResponseEntity<?> appointmentRegistration(@RequestBody Appointment appoinment){
         appointmentService.registerAppoinment(appoinment);
         return new ResponseEntity<>(new ResponseMessage("Registered Successfully"), OK);
     }

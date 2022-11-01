@@ -24,22 +24,12 @@ public class HealthcareapiApplication {
 		SpringApplication.run(HealthcareapiApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner runner(AppUserRepo repo, AppUserProfileRepo profileRepo, PatientRepo patientRepo) {
+	CommandLineRunner runner(AppUserRepo repo) {
 		return args->{
 			PasswordEncoder encoder = new BCryptPasswordEncoder();
 			UserProfileDetails details=new UserProfileDetails("dinagar","+919876543210","testEmail@gmail.com","India");
 			AppUserDetails uDetails = new AppUserDetails("dinagar",encoder.encode("password"),details);
 			repo.save(uDetails);
-			patientRepo.save(new Patients("patient1","male",new Date(),
-					"+918887643132","patient1@gmail.com","fever"));
-
-			patientRepo.save(new Patients("patient2","male",new Date(),
-					"+918987643132","patient2@gmail.com","headache"));
-
-			patientRepo.save(new Patients("patient3","female",new Date(),
-					"+918987643132","patient3@gmail.com","cold"));
-//			profileRepo.save();
-			
 		};
 	}
 

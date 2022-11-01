@@ -12,19 +12,31 @@ import java.util.List;
 public class AppointmentService {
 
     private AppointmentRepo aRepo;
+    private PatientService patientService;
+
 
     @Autowired
-    public AppointmentService(AppointmentRepo aRepo) {
+    public AppointmentService(AppointmentRepo aRepo,PatientService patientService) {
         this.aRepo = aRepo;
+        this.patientService=patientService;
     }
 
     public boolean registerAppoinment(Appointment appointment){
-        aRepo.save(appointment);
-        return true;
+
+        if(patientService.getSinglePatient(appointment.getPatientid())!=null){
+            aRepo.save(appointment);
+            return true;
+        }
+
+        return false;
     }
     public boolean deleteAppoinment(long id){
-        aRepo.deleteById(id);
-        return true;
+
+        if(aRepo.findById(id).orElse(null)!=null){
+            aRepo.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     public List<Appointment> getAllAppoinments(){
@@ -34,4 +46,6 @@ public class AppointmentService {
     public List<Appointment> getAllPatientAppoinment(long id){
         return aRepo.findAllByPatientId(id);
     }
+
+
 }
