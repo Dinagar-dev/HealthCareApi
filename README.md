@@ -26,9 +26,9 @@ port can be changed by changing "server.port" value in application.properties fi
 | Delete | /appointment/delete/{aId} | appointment id      | success/failure message                    |
 
 Security Configurations:
-* Jwt based authentication is used, with the help of OAuth2 api
+* Jwt based authentication is implemented by using spring-boot's inbuilt OAuth2ResourceServer
 * RSA keys configured for signature verification(provides extra security) instead of secret key
-* BcryptPassword encoder is being used for encoding password(instead of saving plain password)
+* BcryptPassword encoder is used for encoding password(instead of saving plain password)
 
 dummy_data_inserts.sql holds the dummy data of disease,patients,appointment models
 Keystore.jks holds the RSA key
