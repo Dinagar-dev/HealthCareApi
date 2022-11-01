@@ -27,8 +27,8 @@ public class HealthcareapiApplication {
 	CommandLineRunner runner(AppUserRepo repo) {
 		return args->{
 			PasswordEncoder encoder = new BCryptPasswordEncoder();
-			UserProfileDetails details=new UserProfileDetails("dinagar","+919876543210","testEmail@gmail.com","India");
-			AppUserDetails uDetails = new AppUserDetails("dinagar",encoder.encode("password"),details);
+			UserProfileDetails details=new UserProfileDetails("defaultUser","+919876543210","defaultUser@gmail.com","India");
+			AppUserDetails uDetails = new AppUserDetails("defaultUser",encoder.encode("password"),details);
 			repo.save(uDetails);
 		};
 	}
