@@ -30,13 +30,14 @@ public class AppUserController {
 	private boolean flg;
 	private String message;
 	private HttpStatus statusCode;
-	@Autowired
 	private AppUserService appUserService;
-	@Autowired
 	AuthenticationManager authManager;
-	
-//	@Autowired
-//	private AppUserProfileService appProfileService;
+
+	@Autowired
+	AppUserController(AppUserService appUserService,AuthenticationManager authManager){
+		this.appUserService=appUserService;
+		this.authManager=authManager;
+	}
 	
 	@Autowired
 	JwtHelper jwtHelper;
