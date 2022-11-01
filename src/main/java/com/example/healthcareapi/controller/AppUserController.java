@@ -65,7 +65,7 @@ public class AppUserController {
 		AppUserDetails currentUser=appUserService.getByUsername(appUserDetails.getUser_name());
 		String token = jwtHelper.geratejwtToken(currentUser.getUser_name());
 		String id =String.valueOf(currentUser.getId());
-		log.info("token : {}ho",token);
+		log.info("token : {}",token);
 		return new ResponseEntity<>(new ResponseMessage(id,token),HttpStatus.OK);
 		
 	}

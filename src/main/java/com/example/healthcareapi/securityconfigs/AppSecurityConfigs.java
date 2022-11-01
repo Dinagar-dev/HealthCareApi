@@ -27,16 +27,21 @@ public class AppSecurityConfigs {
 
 	private final static String [] exceptionalEndpoints= {"/signin","/register"};
 	private final DaoAuthenticationProvider authprovider = new DaoAuthenticationProvider();
-	
+
+
+	/*
+	* DAO based authentication
+	*
+	* User credentials will be taken from the request and compared with data present in DB
+	* if authentication is success, JWT token will be prepared and send as a response
+	* */
 	@Bean 
 	AuthenticationManager authManager(AppUserService userdetailsservice) {
 		authprovider.setUserDetailsService(userdetailsservice);
 		authprovider.setPasswordEncoder(encoder());
 		return new ProviderManager(authprovider);
 	}
-	
-	
-	
+
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		
@@ -70,7 +75,7 @@ public class AppSecurityConfigs {
 	}
 	
 	
-	
+	/*to disable cors issues*/
 //	CorsConfigurationSource configSource() {
 //	CorsConfiguration corsConfiguration = new CorsConfiguration();
 //	corsConfiguration.setAllowCredentials(true);
@@ -86,4 +91,5 @@ public class AppSecurityConfigs {
 //	urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 //	return urlBasedCorsConfigurationSource;
 //}
+
 }
