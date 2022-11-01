@@ -15,6 +15,8 @@ import com.example.healthcareapi.model.UserProfileDetails;
 import com.example.healthcareapi.repos.AppUserProfileRepo;
 import com.example.healthcareapi.repos.AppUserRepo;
 
+import java.util.Date;
+
 @SpringBootApplication
 public class HealthcareapiApplication {
 
@@ -28,13 +30,13 @@ public class HealthcareapiApplication {
 			UserProfileDetails details=new UserProfileDetails("dinagar","+919876543210","testEmail@gmail.com","India");
 			AppUserDetails uDetails = new AppUserDetails("dinagar",encoder.encode("password"),details);
 			repo.save(uDetails);
-			patientRepo.save(new Patients((long)1,"patient1","male","09-02-2000",
+			patientRepo.save(new Patients("patient1","male",new Date(),
 					"+918887643132","patient1@gmail.com","fever"));
 
-			patientRepo.save(new Patients((long)1,"patient2","male","09-02-2000",
+			patientRepo.save(new Patients("patient2","male",new Date(),
 					"+918987643132","patient2@gmail.com","headache"));
 
-			patientRepo.save(new Patients((long)1,"patient3","female","09-02-2000",
+			patientRepo.save(new Patients("patient3","female",new Date(),
 					"+918987643132","patient3@gmail.com","cold"));
 //			profileRepo.save();
 			

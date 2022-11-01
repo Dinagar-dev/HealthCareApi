@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class PatientService {
@@ -22,9 +23,9 @@ public class PatientService {
         return true;
     }
 
-    public Collection<PatientProject> getAllPatient(){
-        long id=1;
-        return patientRepo.getAllByUserId(id);
+    public List<Patients> getAllPatient(){
+//        long id=1;
+        return patientRepo.findAll();
     }
 
     public PatientProject getSinglePatient(Long patientId){

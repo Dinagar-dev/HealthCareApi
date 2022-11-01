@@ -12,8 +12,8 @@ import java.util.Optional;
 
 @Repository
 public interface PatientRepo extends JpaRepository<Patients,Long>{
-    @Query(value = "select * from patients where user_id=?1",nativeQuery = true)
-    Collection<PatientProject> getAllByUserId(Long userId);
+    @Query(value = "select * from patient",nativeQuery = true)
+    Collection<PatientProject> getAllByUserId();
 
 //    Optional<PatientProject> findbypatientid(Long Id);
 
