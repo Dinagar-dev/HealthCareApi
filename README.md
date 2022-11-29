@@ -9,6 +9,8 @@ URL:localhost:6600/{endpoint}
 
 port can be changed by changing "server.port" value in application.properties file
 
+Service Details:
+
 | Method |         Endpoint          | Request             | Response                                   |
 |--------|:-------------------------:|---------------------|--------------------------------------------|
 | Post   |       /registration       | user details        | success/ failure message                   |
